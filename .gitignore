@@ -1,0 +1,24 @@
+# Build outputs
+build\
+out\
+
+# Visual Studio cache
+.vs\
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+
+# Installer artifacts
+*.msi
+
+# Runtime data
+whitelist.txt
+mute_frames.txt
+
+# CMake (if generated in-source)
+CMakeFiles\
+CMakeCache.txt
+cmake_install.cmake
+/build
+/.vs

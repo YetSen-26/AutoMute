@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Product Id="*" Name="AutoMute" Language="1033" Version="1.0.0.0" Manufacturer="AutoMuteTeam" UpgradeCode="D55D0AFA-1D1B-49CB-B0E5-9F2D6BC84E1F">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine"/>
+    <MediaTemplate EmbedCab="yes"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER"/>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="AutoMute">
+          <Component Id="cmpAutoMuteExe" Guid="F3B1FCCF-58E9-4A17-8A31-5BF88C2FB8E9">
+            <File Source="$(var.AutoMuteBuildOutput)" KeyPath="yes"/>
+          </Component>
+          <Component Id="cmpIcon" Guid="4510C7EA-0B11-4AB2-A3E2-EF9C2190C236">
+            <File Source="icon.ico"/>
+          </Component>
+          <Component Id="cmpWhitelist" Guid="3F7F2459-B79F-4250-973F-8955B5E6B1FF">
+            <File Source="whitelist.txt" KeyPath="yes"/>
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+    <Feature Id="ProductFeature" Title="AutoMute" Level="1">
+      <ComponentRef Id="cmpAutoMuteExe"/>
+      <ComponentRef Id="cmpIcon"/>
+      <ComponentRef Id="cmpWhitelist"/>
+    </Feature>
+    <UIRef Id="WixUI_Minimal"/>
+  </Product>
+</Wix>

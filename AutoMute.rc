@@ -1,0 +1,4 @@
+#include <windows.h>
+
+// App icon embedded into the executable
+icon ICON "icon.ico"
